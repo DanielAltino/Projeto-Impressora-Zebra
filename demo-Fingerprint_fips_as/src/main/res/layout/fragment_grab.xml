@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <Button
+            android:id="@+id/btnGRAB"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="GRAB" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/Stop"
+            android:text="Stop" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tvPro"
+        android:text=""
+        android:textSize="18dp"
+        android:textColor="#00AA11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <ScrollView
+        android:gravity="center"
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="200dp">
+        <TextView
+            android:layout_gravity="center"
+            android:id="@+id/tvInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="16sp"
+            android:layout_margin="0dp"
+            android:text="" />
+    </ScrollView>
+    <ImageView
+        android:layout_gravity="center"
+        android:id="@+id/iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
