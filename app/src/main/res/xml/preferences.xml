@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="Settings">
+
+    <PreferenceCategory android:title="@string/file_storage">
+
+        <PreferenceScreen
+            android:key="@string/template_directory"
+            android:title="@string/template_directory"
+            android:summary="@string/template_directory_summary" />
+
+        <PreferenceScreen
+            android:key="@string/template_image_directory"
+            android:title="@string/template_image_directory"
+            android:summary="@string/template_image_directory_summary" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

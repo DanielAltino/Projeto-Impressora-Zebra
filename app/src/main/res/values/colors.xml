@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transparent_white_overlay">#EEFFFFFF</color>
+    <color name="progress_text">#888888</color>
+    <color name="lighter_gray">#AAAAAA</color>
+    <color name="very_light_gray">#EEEEEE</color>
+    <color name="disabled_text">#CCCCCC</color>
+</resources>

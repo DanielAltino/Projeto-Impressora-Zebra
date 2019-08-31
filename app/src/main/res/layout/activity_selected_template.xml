@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/***********************************************
+ * CONFIDENTIAL AND PROPRIETARY
+ *
+ * The source code and other information contained herein is the confidential and exclusive property of
+ * ZIH Corp. and is subject to the terms and conditions in your end user license agreement.
+ * This source code, and any other information contained herein, shall not be copied, reproduced, published,
+ * displayed or distributed, in whole or in part, in any medium, by any means, for any purpose except as
+ * expressly permitted under such license agreement.
+ *
+ * Copyright ZIH Corp. 2018
+ *
+ * ALL RIGHTS RESERVED
+ ***********************************************/
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/container_margin">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@android:color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/zebra_chevron_button_height"
+            android:paddingLeft="@dimen/zebra_field_padding_horizontal"
+            android:paddingRight="@dimen/zebra_field_padding_horizontal"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/selectedTemplateName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/zebra_blue"
+                android:textStyle="bold"
+                android:textSize="@dimen/zebra_custom_button_text" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_width"
+            android:background="@color/zebra_blue" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/templateVariableList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <com.zebra.zebraui.ZebraSpinnerView
+                    android:id="@+id/quantitySpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:zebraHeaderText="@string/quantity"
+                    app:zebraSpinnerViewEntries="@array/quantities" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_width"
+            android:background="@color/zebra_blue" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/zebra_button_container_padding"
+            android:gravity="right">
+
+            <com.zebra.zebraui.ZebraButton
+                android:id="@+id/cancelButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/zebra_button_container_padding"
+                android:text="@android:string/cancel" />
+
+            <com.zebra.zebraui.ZebraButton
+                android:id="@+id/printButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/print"
+                app:zebraButtonIsPrimary="true" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <include layout="@layout/overlay_progress" />
+
+</FrameLayout>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/***********************************************
+ * CONFIDENTIAL AND PROPRIETARY
+ *
+ * The source code and other information contained herein is the confidential and exclusive property of
+ * ZIH Corp. and is subject to the terms and conditions in your end user license agreement.
+ * This source code, and any other information contained herein, shall not be copied, reproduced, published,
+ * displayed or distributed, in whole or in part, in any medium, by any means, for any purpose except as
+ * expressly permitted under such license agreement.
+ *
+ * Copyright ZIH Corp. 2018
+ *
+ * ALL RIGHTS RESERVED
+ ***********************************************/
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fileBrowserContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/container_margin"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zebra_chevron_button_height"
+        android:paddingLeft="@dimen/zebra_field_padding_horizontal"
+        android:paddingRight="@dimen/zebra_field_padding_horizontal"
+        android:gravity="center_vertical"
+        android:textAllCaps="true"
+        android:textColor="@color/zebra_blue"
+        android:textStyle="bold"
+        android:textSize="@dimen/zebra_custom_button_text"
+        android:text="@string/select_directory" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_width"
+        android:background="@color/zebra_blue" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/fileBrowserTitle"
+        android:paddingTop="10dp"
+        android:paddingLeft="@dimen/zebra_field_padding_horizontal"
+        android:paddingRight="@dimen/zebra_field_padding_horizontal"
+        android:paddingBottom="10dp"
+        android:background="@color/very_light_gray">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/displayPath"
+            android:textColor="@color/zebra_blue"
+            android:textSize="14sp"
+            android:singleLine="true"
+            android:ellipsize="middle" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zebra_underline_width"
+        android:background="@color/lighter_gray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@android:id/list" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:id="@android:id/empty">
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="true"
+                    android:id="@+id/fileChooserEmptyViewSpinner" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no_files_found"
+                    android:textStyle="italic"
+                    android:textColor="@color/disabled_text"
+                    android:id="@+id/fileChooserEmptyViewText" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_width"
+            android:background="@color/zebra_blue" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/zebra_field_padding_horizontal"
+                android:paddingRight="@dimen/zebra_field_padding_horizontal"
+                android:paddingTop="@dimen/zebra_field_padding_vertical"
+                android:paddingBottom="@dimen/zebra_field_padding_vertical">
+
+                <com.zebra.zebraui.ZebraButton
+                    android:id="@+id/cancelButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:textAllCaps="true"
+                    android:text="@android:string/cancel" />
+
+                <com.zebra.zebraui.ZebraButton
+                    android:id="@+id/selectButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:textAllCaps="true"
+                    android:text="@string/select"
+                    app:zebraButtonIsPrimary="true"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
