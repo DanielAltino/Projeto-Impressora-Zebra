@@ -2,48 +2,32 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zebra.printstationcard">
 
-    <uses-feature
-        android:name="android.hardware.nfc"
-        android:required="false" />
-
-    <uses-feature
-        android:name="android.hardware.usb.host"
-        android:required="false" />
-
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA" />
-
     <application
         android:name=".MainApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".fingerprint.PrintCardActivity"></activity>
+        <activity android:name=".fingerprint.IdentificationFragment" />
+        <activity android:name=".fingerprint.IdentificationActivity" />
         <activity
             android:name=".fingerprint.FirstActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".MainActivity"/>
-
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".discovery.PrinterSelectionActivity"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait">
+
             <!-- The meta-data element is needed for versions lower than 4.1 -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.zebra.printstationcard.MainActivity" />
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
 
@@ -73,53 +57,68 @@
                     android:pathPrefix="/apps/r/nfc"
                     android:scheme="http" />
             </intent-filter>
-        </activity>
 
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.zebra.printstationcard.MainActivity" />
+        </activity>
         <activity
             android:name=".templates.SelectedTemplateJobActivity"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait">
+
             <!-- The meta-data element is needed for versions lower than 4.1 -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.zebra.printstationcard.MainActivity" />
         </activity>
-
         <activity
             android:name=".settings.SettingsActivity"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait">
+
             <!-- The meta-data element is needed for versions lower than 4.1 -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.zebra.printstationcard.MainActivity" />
         </activity>
-
         <activity
             android:name=".settings.AboutDialogActivity"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait">
+
             <!-- The meta-data element is needed for versions lower than 4.1 -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.zebra.printstationcard.MainActivity" />
         </activity>
-
         <activity
             android:name=".file.DirectoryChooserActivity"
             android:parentActivityName=".settings.SettingsActivity"
             android:screenOrientation="portrait">
+
             <!-- The meta-data element is needed for versions lower than 4.1 -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.zebra.printstationcard.settings.SettingsActivity" />
         </activity>
-
-        <activity android:name=".fingerprint.FormActivity"/>
-        <activity android:name=".fingerprint.CameraActivity"/>
-        <activity android:name=".fingerprint.EnrollActivity"/>
-        <activity android:name=".fingerprint.IdentificationActivity"/>
-
+        <activity android:name=".fingerprint.FormActivity" />
+        <activity android:name=".fingerprint.CameraActivity" />
+        <activity android:name=".fingerprint.EnrollActivity" />
     </application>
+    <uses-feature
+        android:name="android.hardware.usb.host"
+        android:required="false" />
+
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="false" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

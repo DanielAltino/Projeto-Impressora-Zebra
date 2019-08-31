@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Print Station Card</string>
+    <string name="app_name">Demo PRINT</string>
 
     <string name="no_printer_selected">No Printer Selected</string>
     <string name="no_recently_selected_printers">No Recently Selected Printers</string>

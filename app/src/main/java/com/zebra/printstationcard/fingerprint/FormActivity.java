@@ -14,8 +14,8 @@ import java.util.ArrayList;
 public class FormActivity extends AppCompatActivity {
 
     private Button btnGoToPicture;
-    private EditText etName, etEmail, etCpf, etRg, etState, etJob;
-    private String name, email, cpf, rg, state, job, dados;
+    private EditText etName, etEmail, etCpf, etRg, etState, etCargo, etTipoSanguineo, etNascimento, etGenero, etPorteArma;
+    private String name, email, cpf, rg, state, cargo, tipo_sanguineo, nascimento, genero, porte_arma, dados;
 
 
     private ArrayList<String> Arquivos = new ArrayList<String>();
@@ -47,6 +47,11 @@ public class FormActivity extends AppCompatActivity {
         etCpf = (EditText) findViewById(R.id.etCPF);
         etRg = (EditText) findViewById(R.id.etRG);
         etState = (EditText) findViewById(R.id.etState);
+        etCargo = (EditText) findViewById(R.id.etCargo);
+        etTipoSanguineo = (EditText) findViewById(R.id.etTipoSanguineo);
+        etNascimento = (EditText) findViewById(R.id.etDataNasc);
+        etGenero = (EditText) findViewById(R.id.etGenero);
+        etPorteArma = (EditText) findViewById(R.id.etPorte);
 
 
     }
@@ -57,9 +62,14 @@ public class FormActivity extends AppCompatActivity {
         cpf = etCpf.getText().toString();
         rg = etRg.getText().toString();
         state = etState.getText().toString();
+        cargo = etCargo.getText().toString();
+        tipo_sanguineo = etTipoSanguineo.getText().toString();
+        nascimento = etNascimento.getText().toString();
+        genero = etGenero.getText().toString();
+        porte_arma = etPorteArma.getText().toString();
 
-
-        dados = "Nome: " + name + "|" + "Email: " + email + "|" + "CPF: " + cpf + "|" + "RG: " + rg + "|" + "Estado: " + state + ";";
+        dados = "NAME:" + name + "£" + "EMAIL:" + email + "£" + "CPF:" + cpf + "£" + "RG:" + rg + "£" + "ESTADO:" + state +"£" + "CARGO:" + cargo
+                +"£" + "TIPO_SANGUINEO:" + state + "£" + "NASCIMENTO:" + nascimento +"£" + "GENERO:" + genero +"£" + "PORTE_ARMA:" + porte_arma +";";
 
         return dados;
     }

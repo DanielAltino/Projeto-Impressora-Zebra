@@ -157,6 +157,7 @@ public class EnrollActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.btnCleanAll:
                 int result = mFingerprint.deleteAllFingers();
                 Toast.makeText(EnrollActivity.this, "CleanAll：" + result, Toast.LENGTH_SHORT).show();
+                cleanFile();
                 break;
             case R.id.btnEnrollStop:
                 mFingerprint.stopEnroll();
@@ -321,7 +322,7 @@ public class EnrollActivity extends AppCompatActivity implements View.OnClickLis
 
                 Bundle extras = getIntent().getExtras();
                 if (extras != null) {
-                    infoCliente = "Id:" + id + "|" + extras.getString("Dados");
+                    infoCliente = "ID:" + id + "£" + extras.getString("Dados");
                 }
 
                 click_Salvar();
@@ -474,6 +475,28 @@ public class EnrollActivity extends AppCompatActivity implements View.OnClickLis
         }
         catch (Exception e)
         {
+            Mensagem("Erro : " + e.getMessage());
+        }
+    }
+
+    public void cleanFile() {
+        String lstrNomeArq;
+        File arq;
+        try {
+            lstrNomeArq = "arquivo.txt";
+
+            arq = new File(Environment.getExternalStorageDirectory(), lstrNomeArq);
+
+            FileOutputStream fos;
+
+
+            fos = new FileOutputStream(arq);
+            fos.write("".getBytes());
+            fos.flush();
+            fos.close();
+            Mensagem("File is cleaned!");
+            Listar();
+        } catch (Exception e) {
             Mensagem("Erro : " + e.getMessage());
         }
     }

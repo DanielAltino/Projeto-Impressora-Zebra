@@ -5,10 +5,10 @@ import android.content.pm.ActivityInfo;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.AsyncTask;
-import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTabHost;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.widget.Toast;
@@ -20,18 +20,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- * FIPS指纹模块使用demo
- *
- * 1、使用前请确认您的机器已安装此模块。
- * 2、要正常使用模块需要在\libs\armeabi\目录放置libDeviceAPI.so文件，同时在\libs\目录下放置DeviceAPI.jar文件。
- * 3、在操作设备前需要调用 init()打开设备，使用完后调用 free() 关闭设备
- *
- *
- * 更多函数的使用方法请查看API说明文档
- *
- * @author liuruifeng
- */
 public class IdentificationActivity extends AppCompatActivity {
 
     private final static String TAG = "IdentificationActivity";
@@ -48,7 +36,7 @@ public class IdentificationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG,"onCreate");
-        setContentView(R.layout.activity_main_identification);
+        setContentView(R.layout.activity_identification);
         initSound();
         initViewPageData();
         try {
@@ -79,7 +67,7 @@ public class IdentificationActivity extends AppCompatActivity {
         mTabHost.addTab(mTabHost.newTabSpec(getString(R.string.fingerprint_tab_acquisition)).setIndicator(getString(R.string.fingerprint_tab_acquisition)),
                 AcquisitionFragment.class, null);
          */
-        mTabHost.addTab(mTabHost.newTabSpec("Indentify").setIndicator(""),
+        mTabHost.addTab(mTabHost.newTabSpec("").setIndicator(""),
                 IdentificationFragment.class, null);
 
         boolean result;
@@ -128,8 +116,7 @@ public class IdentificationActivity extends AppCompatActivity {
         @Override
         protected Boolean doInBackground(String... params) {
             // TODO Auto-generated method stub
-            //return mFingerprint.init();
-            return true;
+            return mFingerprint.init();
         }
 
         @Override
@@ -204,4 +191,3 @@ public class IdentificationActivity extends AppCompatActivity {
 
 
 }
-

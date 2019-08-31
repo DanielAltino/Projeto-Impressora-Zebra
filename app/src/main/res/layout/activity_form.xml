@@ -1,193 +1,296 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".fingerprint.FormActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
 
-    <EditText
-        android:id="@+id/etJob"
-        android:layout_width="250dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Developer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etState" />
+     <ScrollView
+         android:id="@+id/scrollView"
+         android:layout_width="wrap_content"
+         android:layout_height="361dp"
+         android:layout_marginTop="24dp"
+         android:layout_marginBottom="8dp"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+         app:layout_constraintVertical_bias="0.046">
 
-    <EditText
-        android:id="@+id/etState"
-        android:layout_width="250dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Minas Gerais"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etRG" />
+          <android.support.constraint.ConstraintLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/etRG"
-        android:layout_width="250dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="MG-12.345.678"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etCPF" />
+               <EditText
+                   android:id="@+id/etPorte"
+                   android:layout_width="200dp"
+                   android:layout_height="43dp"
+                   android:layout_marginTop="16dp"
+                   android:layout_marginEnd="16dp"
+                   android:ems="10"
+                   android:hint="Armamento de Porte"
+                   android:inputType="textPersonName"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/etGenero" />
 
-    <EditText
-        android:id="@+id/etCPF"
-        android:layout_width="250dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="123.456.789-00"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+               <EditText
+                   android:id="@+id/etGenero"
+                   android:layout_width="200dp"
+                   android:layout_height="43dp"
+                   android:layout_marginTop="16dp"
+                   android:layout_marginEnd="16dp"
+                   android:ems="10"
+                   android:hint="Genero"
+                   android:inputType="textPersonName"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/etDataNasc" />
 
-    <EditText
-        android:id="@+id/etEmail"
-        android:layout_width="250dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:ems="10"
-        android:hint="Your email"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etName" />
+               <EditText
+                   android:id="@+id/etDataNasc"
+                   android:layout_width="200dp"
+                   android:layout_height="43dp"
+                   android:layout_marginTop="16dp"
+                   android:layout_marginEnd="16dp"
+                   android:ems="10"
+                   android:hint="Data de Nascimento"
+                   android:inputType="date|textPersonName"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/etTipoSanguineo" />
 
-    <EditText
-        android:id="@+id/etName"
-        android:layout_width="250dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:ems="10"
-        android:hint="Full name"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+               <EditText
+                   android:id="@+id/etTipoSanguineo"
+                   android:layout_width="200dp"
+                   android:layout_height="43dp"
+                   android:layout_marginTop="16dp"
+                   android:layout_marginEnd="16dp"
+                   android:ems="10"
+                   android:hint="Seu Tipo Sanguíneo"
+                   android:inputType="textPersonName"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/etCargo" />
 
-    <TextView
-        android:id="@+id/tvName"
-        android:layout_width="78dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:gravity="center_vertical"
-        android:text="Your name:"
-        app:layout_constraintEnd_toStartOf="@+id/etName"
-        app:layout_constraintHorizontal_bias="0.571"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+               <EditText
+                   android:id="@+id/etCargo"
+                   android:layout_width="200dp"
+                   android:layout_height="43dp"
+                   android:layout_marginTop="16dp"
+                   android:layout_marginEnd="16dp"
+                   android:layout_marginRight="16dp"
+                   android:ems="10"
+                   android:inputType="textPersonName"
+                   android:text="Developer"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/etState" />
 
-    <TextView
-        android:id="@+id/tvJob"
-        android:layout_width="78dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:gravity="center_vertical"
-        android:text="Your job:"
-        app:layout_constraintEnd_toStartOf="@+id/etJob"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvState" />
+               <EditText
+                   android:id="@+id/etState"
+                   android:layout_width="200dp"
+                   android:layout_height="43dp"
+                   android:layout_marginTop="16dp"
+                   android:layout_marginEnd="16dp"
+                   android:layout_marginRight="16dp"
+                   android:ems="10"
+                   android:inputType="textPersonName"
+                   android:text="Minas Gerais"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/etRG" />
 
-    <TextView
-        android:id="@+id/tvState"
-        android:layout_width="78dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:gravity="center_vertical"
-        android:text="Your state:"
-        app:layout_constraintEnd_toStartOf="@+id/etState"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvRG" />
+               <EditText
+                   android:id="@+id/etRG"
+                   android:layout_width="200dp"
+                   android:layout_height="43dp"
+                   android:layout_marginTop="16dp"
+                   android:layout_marginEnd="16dp"
+                   android:layout_marginRight="16dp"
+                   android:ems="10"
+                   android:inputType="textPersonName"
+                   android:text="MG-12.345.678"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/etCPF" />
 
-    <TextView
-        android:id="@+id/tvRG"
-        android:layout_width="78dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:gravity="center_vertical"
-        android:text="Your RG:"
-        app:layout_constraintEnd_toStartOf="@+id/etRG"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCPF" />
+               <EditText
+                   android:id="@+id/etCPF"
+                   android:layout_width="200dp"
+                   android:layout_height="43dp"
+                   android:layout_marginTop="16dp"
+                   android:layout_marginEnd="16dp"
+                   android:layout_marginRight="16dp"
+                   android:ems="10"
+                   android:inputType="textPersonName"
+                   android:text="123.456.789-00"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
-    <TextView
-        android:id="@+id/tvCPF"
-        android:layout_width="78dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:gravity="center_vertical"
-        android:text="Your CPF:"
-        app:layout_constraintEnd_toStartOf="@+id/etCPF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
+               <EditText
+                   android:id="@+id/etEmail"
+                   android:layout_width="200dp"
+                   android:layout_height="43dp"
+                   android:layout_marginTop="16dp"
+                   android:layout_marginEnd="16dp"
+                   android:ems="10"
+                   android:hint="Email"
+                   android:inputType="textPersonName"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/etName" />
 
-    <TextView
-        android:id="@+id/tvEmail"
-        android:layout_width="78dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:gravity="center_vertical"
-        android:text="Your email:"
-        app:layout_constraintEnd_toStartOf="@+id/etEmail"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+               <EditText
+                   android:id="@+id/etName"
+                   android:layout_width="200dp"
+                   android:layout_height="43dp"
+                   android:layout_marginTop="16dp"
+                   android:layout_marginEnd="16dp"
+                   android:ems="10"
+                   android:hint="Nome"
+                   android:inputType="textPersonName"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnGoToPicture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:text="Take picture"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etJob" />
+               <TextView
+                   android:id="@+id/tvArmamento"
+                   android:layout_width="103dp"
+                   android:layout_height="43dp"
+                   android:layout_marginStart="32dp"
+                   android:layout_marginTop="16dp"
+                   android:gravity="center_vertical"
+                   android:text="Porte de Armas:"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/tvGenero" />
+
+               <TextView
+                   android:id="@+id/tvGenero"
+                   android:layout_width="103dp"
+                   android:layout_height="43dp"
+                   android:layout_marginStart="32dp"
+                   android:layout_marginTop="16dp"
+                   android:gravity="center_vertical"
+                   android:text="Genero:"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/tvDataNasc" />
+
+               <TextView
+                   android:id="@+id/tvDataNasc"
+                   android:layout_width="103dp"
+                   android:layout_height="43dp"
+                   android:layout_marginStart="32dp"
+                   android:layout_marginTop="16dp"
+                   android:gravity="center_vertical"
+                   android:text="Nascimento:"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/tvTipoSanguineo" />
+
+               <TextView
+                   android:id="@+id/tvTipoSanguineo"
+                   android:layout_width="103dp"
+                   android:layout_height="43dp"
+                   android:layout_marginStart="32dp"
+                   android:layout_marginTop="16dp"
+                   android:gravity="center_vertical"
+                   android:text="Tipo Sanguineo:"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/tvJob" />
+
+               <TextView
+                   android:id="@+id/tvName"
+                   android:layout_width="103dp"
+                   android:layout_height="43dp"
+                   android:layout_marginStart="32dp"
+                   android:layout_marginTop="16dp"
+                   android:layout_marginEnd="16dp"
+                   android:gravity="center_vertical"
+                   android:text="Name:"
+                   app:layout_constraintEnd_toStartOf="@+id/etName"
+                   app:layout_constraintHorizontal_bias="0.666"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toTopOf="parent" />
+
+               <TextView
+                   android:id="@+id/tvJob"
+                   android:layout_width="103dp"
+                   android:layout_height="43dp"
+                   android:layout_marginStart="16dp"
+                   android:layout_marginTop="16dp"
+                   android:layout_marginEnd="16dp"
+                   android:gravity="center_vertical"
+                   android:text="Cargo:"
+                   app:layout_constraintEnd_toStartOf="@+id/etCargo"
+                   app:layout_constraintHorizontal_bias="1.0"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/tvState" />
+
+               <TextView
+                   android:id="@+id/tvState"
+                   android:layout_width="103dp"
+                   android:layout_height="43dp"
+                   android:layout_marginStart="32dp"
+                   android:layout_marginTop="16dp"
+                   android:layout_marginEnd="16dp"
+                   android:gravity="center_vertical"
+                   android:text="Estado:"
+                   app:layout_constraintEnd_toStartOf="@+id/etState"
+                   app:layout_constraintHorizontal_bias="0.666"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/tvRG" />
+
+               <TextView
+                   android:id="@+id/tvRG"
+                   android:layout_width="103dp"
+                   android:layout_height="43dp"
+                   android:layout_marginStart="32dp"
+                   android:layout_marginTop="16dp"
+                   android:layout_marginEnd="16dp"
+                   android:gravity="center_vertical"
+                   android:text="RG:"
+                   app:layout_constraintEnd_toStartOf="@+id/etRG"
+                   app:layout_constraintHorizontal_bias="0.666"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/tvCPF" />
+
+               <TextView
+                   android:id="@+id/tvCPF"
+                   android:layout_width="103dp"
+                   android:layout_height="43dp"
+                   android:layout_marginStart="32dp"
+                   android:layout_marginTop="16dp"
+                   android:layout_marginEnd="16dp"
+                   android:gravity="center_vertical"
+                   android:text="CPF:"
+                   app:layout_constraintEnd_toStartOf="@+id/etCPF"
+                   app:layout_constraintHorizontal_bias="0.666"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
+
+               <TextView
+                   android:id="@+id/tvEmail"
+                   android:layout_width="103dp"
+                   android:layout_height="43dp"
+                   android:layout_marginStart="32dp"
+                   android:layout_marginTop="16dp"
+                   android:layout_marginEnd="16dp"
+                   android:gravity="center_vertical"
+                   android:text="Seu email:"
+                   app:layout_constraintEnd_toStartOf="@+id/etEmail"
+                   app:layout_constraintHorizontal_bias="0.666"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+          </android.support.constraint.ConstraintLayout>
+
+     </ScrollView>
+
+     <Button
+         android:id="@+id/btnGoToPicture"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginStart="16dp"
+         android:layout_marginTop="16dp"
+         android:layout_marginEnd="16dp"
+         android:layout_marginBottom="16dp"
+         android:text="Registrar"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toBottomOf="@+id/scrollView" />
+
 </android.support.constraint.ConstraintLayout>
