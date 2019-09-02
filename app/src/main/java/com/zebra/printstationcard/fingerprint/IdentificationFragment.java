@@ -44,10 +44,16 @@ public class IdentificationFragment extends KeyDwonFragment implements View.OnCl
 
     String userID = "";
     String userName = "";
-    String userEmail = "";
+    String userSobrenome = "";
+    String userRegistro = "";
     String userCPF = "";
     String userRG = "";
     String userState = "";
+    String userCargo = "";
+    String userTipoSang = "";
+    String userNascimento = "";
+    String userGenero = "";
+    String userPorteArma = "";
     Button btnPrintCard;
 
 
@@ -130,13 +136,20 @@ public class IdentificationFragment extends KeyDwonFragment implements View.OnCl
                 mContext.mFingerprint.stopIdentification();
                 break;
             case R.id.btnPrintCard:
-                Intent princCardIntent = new Intent(mContext, PrintCardActivity.class);
+                //Intent princCardIntent = new Intent(mContext, PrintCardActivity.class);
+                Intent princCardIntent = new Intent(mContext, MainActivity.class);
                 princCardIntent.putExtra("userID", userID);
                 princCardIntent.putExtra("userName", userName);
-                princCardIntent.putExtra("userEmail", userEmail);
+                princCardIntent.putExtra("userSobrenome", userSobrenome);
+                princCardIntent.putExtra("userRegistro", userRegistro);
                 princCardIntent.putExtra("userCPF", userCPF);
                 princCardIntent.putExtra("userRG", userRG);
                 princCardIntent.putExtra("userState", userState);
+                princCardIntent.putExtra("userCargo", userCargo);
+                princCardIntent.putExtra("userTipoSang", userTipoSang);
+                princCardIntent.putExtra("userNascimento", userNascimento);
+                princCardIntent.putExtra("userGenero", userGenero);
+                princCardIntent.putExtra("userPorteArma", userPorteArma);
                 startActivity(princCardIntent);
 
                 break;
@@ -162,7 +175,7 @@ public class IdentificationFragment extends KeyDwonFragment implements View.OnCl
         public void onComplete(boolean result, int i,int failuerCode) {
             Log.i(TAG, "failuerCode="+failuerCode);
             if(result) {
-                tvID.setText("fingerprintID=" + i);
+                tvID.setText("Leitura completa, usuário com ID = " + i);
 
                 click_Carregar(i);
 
@@ -172,7 +185,6 @@ public class IdentificationFragment extends KeyDwonFragment implements View.OnCl
             }
             btnIdent.setEnabled(true);
         }
-
     }
 
     // GRAVAR UM ARQUIVO TEXTO
@@ -217,28 +229,31 @@ public class IdentificationFragment extends KeyDwonFragment implements View.OnCl
             arq = new File(Environment.getExternalStorageDirectory(), "arquivo.txt");
             BufferedReader br = new BufferedReader(new FileReader(arq));
 
+            String[] dataStringSplited = {};
+            String[] dataUserSplited = {};
+
             while ((lstrlinha = br.readLine()) != null)
             {
                 //Toast.makeText(mContext, lstrlinha, Toast.LENGTH_SHORT).show();
-                String[] dataStringSplited = lstrlinha.split(";");
+                dataStringSplited = lstrlinha.split(";");
                 for (String dataString : dataStringSplited) {
-                    String[] dataUserSplited = dataString.split("£");
+                    dataUserSplited = dataString.split("£");
                     for(String userString : dataUserSplited){
                         datas.add(userString);
                     }
                 }
             }
+            Toast.makeText(mContext, "TAMANHO: "  + dataUserSplited.length, Toast.LENGTH_LONG).show();
             if(datas != null){
                 for(String dataInfos : datas){
-
                     if(dataInfos.contains("ID")){
                         if(dataInfos.contains(Integer.toString(userIdentificationID)))
                         {
                             //tvTest.setText("USER ID AQUI: >> " + dataInfos + "Plus TEST: " + datas.indexOf(dataInfos) + " PROXIMO E NOME : " + datas.get(datas.indexOf(dataInfos)+1));
-                            for(int i = 0; i<6; i++) {
+                            for(int i = 0; i<dataUserSplited.length; i++) {
                                 String info = datas.get(datas.indexOf(dataInfos) + i);
                                 String infoSubstring = info.substring(info.lastIndexOf(":") + 1);
-                                tvTest.setText(tvTest.getText() + infoSubstring);
+                                //tvTest.setText(tvTest.getText() + infoSubstring + "<>");
                                 switch (i) {
                                     case 0:
                                         userID = infoSubstring;
@@ -247,7 +262,7 @@ public class IdentificationFragment extends KeyDwonFragment implements View.OnCl
                                         userName = infoSubstring;
                                         break;
                                     case 2:
-                                        userEmail = infoSubstring;
+                                        userSobrenome = infoSubstring;
                                         break;
                                     case 3:
                                         userCPF = infoSubstring;
@@ -256,7 +271,25 @@ public class IdentificationFragment extends KeyDwonFragment implements View.OnCl
                                         userRG = infoSubstring;
                                         break;
                                     case 5:
+                                        userRegistro = infoSubstring;
+                                        break;
+                                    case 6:
                                         userState = infoSubstring;
+                                        break;
+                                    case 7:
+                                        userCargo = infoSubstring;
+                                        break;
+                                    case 8:
+                                        userTipoSang = infoSubstring;
+                                        break;
+                                    case 9:
+                                        userNascimento = infoSubstring;
+                                        break;
+                                    case 10:
+                                        userGenero = infoSubstring;
+                                        break;
+                                    case 11:
+                                        userPorteArma = infoSubstring;
                                         break;
                                 }
                             }
@@ -264,12 +297,12 @@ public class IdentificationFragment extends KeyDwonFragment implements View.OnCl
                     }
                 }
             }
-            Mensagem("Texto Carregado com sucesso!");
+            Mensagem("Dados carregados com sucesso!");
             btnPrintCard.setVisibility(View.VISIBLE);
         }
         catch (Exception e)
         {
-            Mensagem("Erro : " + e.getMessage());
+            Mensagem("Error: " + e.getMessage());
         }
     }
 }

@@ -28,6 +28,11 @@ public class PrintCardActivity extends AppCompatActivity {
         String userCPF = extras.getString("userCPF");
         String userRG = extras.getString("userRG");
         String userState = extras.getString("userState");
+        String userCargo = extras.getString("userCargo");
+        String userTipoSang = extras.getString("userTipoSang");
+        String userNascimento = extras.getString("userNascimento");
+        String userGenero = extras.getString("userGenero");
+        String userPorteArma = extras.getString("userPorteArma");
 
         etIDToPrint = (EditText) findViewById(R.id.etIDToPrint);
         etNameToPrint = (EditText) findViewById(R.id.etNameToPrint);

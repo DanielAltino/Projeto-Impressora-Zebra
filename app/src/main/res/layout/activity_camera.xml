@@ -13,30 +13,24 @@
         android:id="@+id/image_view"
         android:layout_width="400dp"
         android:layout_height="400dp"
-        android:layout_marginBottom="30dp"/>
+        android:layout_marginBottom="5dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="vertical"
+        android:gravity="center">
 
         <!--Button to capture image-->
         <Button
             android:id="@+id/capture_image_btn"
-            android:text="Capture Image"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"/>
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:text="Tirar foto" />
         <Button
             android:id="@+id/btnGoToFinger"
-            android:text="Go to fingerpint"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:text="Ir para a digital"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
-
-
-
-
-
 </LinearLayout>

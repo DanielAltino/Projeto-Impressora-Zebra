@@ -13,17 +13,17 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="identification" />
+            android:text="Identificar biometria" />
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:id="@+id/Stop"
-            android:text="Stop" />
+            android:text="Parar identificação" />
     </LinearLayout>
 
     <TextView
-        android:text="Test: "
+        android:text=""
         android:id="@+id/tvTest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
@@ -46,7 +46,7 @@
 
     <Button
         android:id="@+id/btnPrintCard"
-        android:text="Print card"
+        android:text="Imprimir cartão"
         android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>

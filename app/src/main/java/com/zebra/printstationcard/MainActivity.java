@@ -87,6 +87,21 @@ public class MainActivity extends AppCompatActivity implements PrinterStatusUpda
     private TextView printerAddress;
     private TextView printerModel;
 
+    //RECEIVE DATA
+    String userID = "";
+    String userName = "";
+    String userSobrenome = "";
+    String userRegistro = "";
+    String userCPF = "";
+    String userRG = "";
+    String userState = "";
+    String userCargo = "";
+    String userTipoSang = "";
+    String userNascimento = "";
+    String userGenero = "";
+    String userPorteArma = "";
+
+
     private BroadcastReceiver usbDisconnectReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -111,6 +126,38 @@ public class MainActivity extends AppCompatActivity implements PrinterStatusUpda
         setContentView(R.layout.activity_main);
         UIHelper.setLogoOnActionBar(this);
 
+        //RECEIVE DATA
+        Bundle extras = getIntent().getExtras();
+        userID = extras.getString("userID");
+        userName = extras.getString("userName");
+        userSobrenome = extras.getString("userSobrenome");
+        userRegistro = extras.getString("userRegistro");
+        userCPF = extras.getString("userCPF");
+        userRG = extras.getString("userRG");
+        userState = extras.getString("userState");
+        userCargo = extras.getString("userCargo");
+        userTipoSang = extras.getString("userTipoSang");
+        userNascimento = extras.getString("userNascimento");
+        userGenero = extras.getString("userGenero");
+        userPorteArma = extras.getString("userPorteArma");
+        /*
+        //SEND DATA
+        Intent sendDataToPrint = new Intent(MainActivity.this, SelectedTemplateJobActivity.class);
+        sendDataToPrint.putExtra("userID", userID);
+        sendDataToPrint.putExtra("userName", userName);
+        sendDataToPrint.putExtra("userEmail", userEmail);
+        sendDataToPrint.putExtra("userCPF", userCPF);
+        sendDataToPrint.putExtra("userRG", userRG);
+        sendDataToPrint.putExtra("userState", userState);
+        sendDataToPrint.putExtra("userCargo", userCargo);
+        sendDataToPrint.putExtra("userTipoSang", userTipoSang);
+        sendDataToPrint.putExtra("userNascimento", userNascimento);
+        sendDataToPrint.putExtra("userGenero", userGenero);
+        sendDataToPrint.putExtra("userPorteArma", userPorteArma);
+        startActivity(sendDataToPrint);
+
+         */
+
         registerReceivers();
 
         noPrinterSelectedContainer = (FrameLayout) findViewById(R.id.noPrinterSelectedContainer);
@@ -126,10 +173,25 @@ public class MainActivity extends AppCompatActivity implements PrinterStatusUpda
         templateList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //SEND DATA
+                //Intent sendDataToPrint = new Intent(MainActivity.this, SelectedTemplateJobActivity.class);
+                //startActivity(sendDataToPrint);
                 String templateName = templateListAdapter.getTemplateNameAt(position);
-                Intent intent = new Intent(MainActivity.this, SelectedTemplateJobActivity.class);
-                intent.putExtra(KEY_SELECTED_TEMPLATE_NAME, templateName);
-                startActivity(intent);
+                Intent sendDataToPrint = new Intent(MainActivity.this, SelectedTemplateJobActivity.class);
+                sendDataToPrint.putExtra("userID", userID);
+                sendDataToPrint.putExtra("userName", userName);
+                sendDataToPrint.putExtra("userSobrenome", userSobrenome);
+                sendDataToPrint.putExtra("userRegistro", userRegistro);
+                sendDataToPrint.putExtra("userCPF", userCPF);
+                sendDataToPrint.putExtra("userRG", userRG);
+                sendDataToPrint.putExtra("userState", userState);
+                sendDataToPrint.putExtra("userCargo", userCargo);
+                sendDataToPrint.putExtra("userTipoSang", userTipoSang);
+                sendDataToPrint.putExtra("userNascimento", userNascimento);
+                sendDataToPrint.putExtra("userGenero", userGenero);
+                sendDataToPrint.putExtra("userPorteArma", userPorteArma);
+                sendDataToPrint.putExtra(KEY_SELECTED_TEMPLATE_NAME, templateName);
+                startActivity(sendDataToPrint);
             }
         });
 

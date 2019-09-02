@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.Toast;
 
 import com.rscja.deviceapi.FingerprintWithFIPS;
@@ -69,6 +70,7 @@ public class IdentificationActivity extends AppCompatActivity {
          */
         mTabHost.addTab(mTabHost.newTabSpec("").setIndicator(""),
                 IdentificationFragment.class, null);
+        //mTabHost.setVisibility(View.GONE);
 
         boolean result;
         File file=new File(FileUtils.PATH);
@@ -127,11 +129,11 @@ public class IdentificationActivity extends AppCompatActivity {
 
             if (!result) {
                 isPower=false;
-                Toast.makeText(IdentificationActivity.this, "init fail",
+                Toast.makeText(IdentificationActivity.this, "Inicialização do leitor biométrico falhou",
                         Toast.LENGTH_SHORT).show();
             }else{
                 isPower=true;
-                Toast.makeText(IdentificationActivity.this, "init success", Toast.LENGTH_SHORT).show();
+                Toast.makeText(IdentificationActivity.this, "Leitor biométrico foi inicializado com sucesso!", Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -142,7 +144,7 @@ public class IdentificationActivity extends AppCompatActivity {
 
             mypDialog = new ProgressDialog(IdentificationActivity.this);
             mypDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-            mypDialog.setMessage("init...");
+            mypDialog.setMessage("Inicializando leitor biométrico, aguarde...");
             mypDialog.setCanceledOnTouchOutside(false);
             mypDialog.show();
         }

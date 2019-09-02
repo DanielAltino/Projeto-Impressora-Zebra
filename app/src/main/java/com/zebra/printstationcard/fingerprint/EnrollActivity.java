@@ -1,5 +1,6 @@
 package com.zebra.printstationcard.fingerprint;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -147,7 +148,7 @@ public class EnrollActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.btnEnroll:
                 mFingerprint.setEnrollCallBack(new EnrollBack());
                 mFingerprint.setIdentificationCallBack(new IdentificationBack());
-                Toast.makeText(EnrollActivity.this, "The FINGERPRINT ACTIVITY!", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(EnrollActivity.this, "The FINGERPRINT ACTIVITY!", Toast.LENGTH_SHORT).show();
                 buff = null;
                 id = -1;
                 tvInfo.setText("");
@@ -156,7 +157,7 @@ public class EnrollActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.btnCleanAll:
                 int result = mFingerprint.deleteAllFingers();
-                Toast.makeText(EnrollActivity.this, "CleanAll：" + result, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(EnrollActivity.this, "CleanAll：" + result, Toast.LENGTH_SHORT).show();
                 cleanFile();
                 break;
             case R.id.btnEnrollStop:
@@ -240,11 +241,11 @@ public class EnrollActivity extends AppCompatActivity implements View.OnClickLis
 
             if (!result) {
                 isPower = false;
-                Toast.makeText(EnrollActivity.this, "init fail",
+                Toast.makeText(EnrollActivity.this, "Inicialização do leitor biométrico falhou",
                         Toast.LENGTH_SHORT).show();
             } else {
                 isPower = true;
-                Toast.makeText(EnrollActivity.this, "init success", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EnrollActivity.this, "Leitor biométrico foi inicializado com sucesso!", Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -255,7 +256,7 @@ public class EnrollActivity extends AppCompatActivity implements View.OnClickLis
 
             mypDialog = new ProgressDialog(EnrollActivity.this);
             mypDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-            mypDialog.setMessage("init...");
+            mypDialog.setMessage("Inicializando leitor biométrico, aguarde...");
             mypDialog.setCanceledOnTouchOutside(false);
             mypDialog.show();
         }
@@ -313,7 +314,7 @@ public class EnrollActivity extends AppCompatActivity implements View.OnClickLis
         public void onComplete(boolean result, byte[] bytes, int id, int failuerCode) {
             Log.i(TAG, "failuerCode=" + failuerCode);
             if (result) {
-                String strMsg = "1-Fingerprint captured: " + id;
+                String strMsg = "Biometria salva, com o ID: " + id;
                 btnGoToMain.setVisibility(View.VISIBLE);
                 setMsg(strMsg);
                 String fileName = "FingerprintID_" + id + ".txt";
@@ -343,7 +344,7 @@ public class EnrollActivity extends AppCompatActivity implements View.OnClickLis
         public void onComplete(boolean result, int id, int failuerCode) {
             Log.i(TAG, "failuerCode=" + failuerCode);
             if (result) {
-                setMsg("Fingerprint already exist: " + id);
+                setMsg("Biometria já existe, com o ID: " + id);
                 btnGoToMain.setVisibility(View.VISIBLE);
             } else {
                 if (failuerCode == RESULT_STATUS_NO_MATCH) { //指纹不存在
@@ -440,10 +441,10 @@ public class EnrollActivity extends AppCompatActivity implements View.OnClickLis
             fos.write(dados);
             fos.flush();
             fos.close();
-            Mensagem("Texto Salvo com sucesso!");
+            Mensagem("Dados salvos com sucesso!");
             Listar();
         } catch (Exception e) {
-            Mensagem("Erro : " + e.getMessage());
+            Mensagem("Error: " + e.getMessage());
         }
     }
 
@@ -470,12 +471,12 @@ public class EnrollActivity extends AppCompatActivity implements View.OnClickLis
             }
 
 
-            Mensagem("Texto Carregado com sucesso!");
+            Mensagem("Dados carregados com sucesso!");
 
         }
         catch (Exception e)
         {
-            Mensagem("Erro : " + e.getMessage());
+            Mensagem("Error: " + e.getMessage());
         }
     }
 
@@ -494,10 +495,11 @@ public class EnrollActivity extends AppCompatActivity implements View.OnClickLis
             fos.write("".getBytes());
             fos.flush();
             fos.close();
-            Mensagem("File is cleaned!");
+            Mensagem("Todos os dados foram deletados!");
             Listar();
         } catch (Exception e) {
-            Mensagem("Erro : " + e.getMessage());
+            Mensagem("Error: " + e.getMessage());
+            String[] permission = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
         }
     }
 

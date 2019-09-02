@@ -16,6 +16,7 @@ package com.zebra.printstationcard.templates;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -23,6 +24,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.zebra.printstationcard.MainApplication;
 import com.zebra.printstationcard.PollJobStatusTask;
@@ -39,6 +41,7 @@ import com.zebra.zebraui.ZebraSpinnerView;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeoutException;
 
 public class SelectedTemplateJobActivity extends AppCompatActivity implements GetTemplateVariablesTask.OnGetTemplateVariablesListener,
         SendTemplateJobTask.OnSendTemplateJobListener,
@@ -60,6 +63,20 @@ public class SelectedTemplateJobActivity extends AppCompatActivity implements Ge
     private ZebraButton printButton;
     private LinearLayout progressOverlay;
     private TextView progressMessage;
+
+    //RECEIVE DATA
+    String userID = "";
+    String userName =  "";
+    String userSobrenome =  "";
+    String userRegistro = "";
+    String userCPF =  "";
+    String userRG =  "";
+    String userState =  "";
+    String userCargo =  "";
+    String userTipoSang =  "";
+    String userNascimento =  "";
+    String userGenero = "";
+    String userPorteArma =  "";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -85,6 +102,38 @@ public class SelectedTemplateJobActivity extends AppCompatActivity implements Ge
         getTemplateVariablesTask.setOnGetTemplateVariablesListener(this);
         getTemplateVariablesTask.execute();
 
+        //RECEIVE DATA
+        Bundle extras = getIntent().getExtras();
+        userID = extras.getString("userID");
+        userName = extras.getString("userName");
+        userSobrenome = extras.getString("userSobrenome");
+        userRegistro = extras.getString("userRegistro");
+        userCPF = extras.getString("userCPF");
+        userRG = extras.getString("userRG");
+        userState = extras.getString("userState");
+        userCargo = extras.getString("userCargo");
+        userTipoSang = extras.getString("userTipoSang");
+        userNascimento = extras.getString("userNascimento");
+        userGenero = extras.getString("userGenero");
+        userPorteArma = extras.getString("userPorteArma");
+
+        //Toast.makeText(SelectedTemplateJobActivity.this, "Opened the template", Toast.LENGTH_SHORT).show();
+
+        //TRYING TO PUT VARIABLES
+        /*
+        String geralInfos = "";
+
+        Map<String, String> varsData = new HashMap<>();
+        for (String variable : variablesData.keySet()) {
+            while(variablesData.get(variable).getText().equals("")){
+                variablesData.get(variable).setText("AAAAAAAA");
+            }
+            varsData.put(variable, variablesData.get(variable).getText());
+            //Toast.makeText(SelectedTemplateJobActivity.this, "The INFO IS: " + variablesData.get(variable).getText(), Toast.LENGTH_SHORT).show();
+            geralInfos = geralInfos + "VAR:" + variable + " VALUES " + variablesData.get(variable).getText() + " <> ";
+        }
+         */
+
         printButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,10 +143,16 @@ public class SelectedTemplateJobActivity extends AppCompatActivity implements Ge
                     printButton.setEnabled(false);
                     UIHelper.hideSoftKeyboard(SelectedTemplateJobActivity.this);
 
+                    String geralInfos = "";
+
                     Map<String, String> varsData = new HashMap<>();
                     for (String variable : variablesData.keySet()) {
                         varsData.put(variable, variablesData.get(variable).getText());
+                        //Toast.makeText(SelectedTemplateJobActivity.this, "The INFO IS: " + variablesData.get(variable).getText(), Toast.LENGTH_SHORT).show();
+                        //geralInfos = geralInfos + "VAR:" + variable + " VALUES " + variablesData.get(variable).getText() + " <> ";
                     }
+
+                    //Toast.makeText(SelectedTemplateJobActivity.this, "ALL: " + geralInfos, Toast.LENGTH_LONG).show();
 
                     int quantity = Integer.parseInt(quantitySpinner.getSelectedItem().toString());
 
@@ -118,6 +173,10 @@ public class SelectedTemplateJobActivity extends AppCompatActivity implements Ge
                 finish();
             }
         });
+    }
+
+    void testToast(){
+        Toast.makeText(this, "I am delayed toast", Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -145,10 +204,73 @@ public class SelectedTemplateJobActivity extends AppCompatActivity implements Ge
     }
 
     @Override
-    public void onGetTemplateVariablesStarted() {
+    public void onGetTemplateVariablesStarted(){
         isApplicationBusy = true;
-        showProgressOverlay(getString(R.string.retrieving_template_variables));
-        templateVariableList.removeAllViews();
+        //showProgressOverlay(getString(R.string.retrieving_template_variables));
+        showProgressOverlay("Trying to edit variables values");
+
+        Toast.makeText(this, "Before the toast", Toast.LENGTH_SHORT).show();
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                testToast();
+                setVariablesValue();
+            }
+        }, 1800);   //5 seconds
+
+        setVariablesValue();
+    }
+
+    private void setVariablesValue(){
+        if (!isApplicationBusy) {
+            String geralInfos = "";
+            int count = 0;
+
+            Map<String, String> varsData = new HashMap<>();
+            for (String variable : variablesData.keySet()) {
+                switch (variable){
+                    case "Nome":
+                        variablesData.get(variable).setText(userName);
+                        break;
+                    case "Sobrenome":
+                        variablesData.get(variable).setText(userSobrenome);
+                        break;
+                    case "Registro":
+                        variablesData.get(variable).setText(userRegistro);
+                        break;
+                    case "CPF":
+                        variablesData.get(variable).setText(userCPF);
+                        break;
+                    case "RG":
+                        variablesData.get(variable).setText(userRG);
+                        break;
+                    case "Estado":
+                        variablesData.get(variable).setText(userState);
+                        break;
+                    case "Cargo":
+                        variablesData.get(variable).setText(userCargo);
+                        break;
+                    case "TipoSang":
+                        variablesData.get(variable).setText(userTipoSang);
+                        break;
+                    case "Nascimento":
+                        variablesData.get(variable).setText(userNascimento);
+                        break;
+                    case "Genero":
+                        variablesData.get(variable).setText(userGenero);
+                        break;
+                    case "PorteArma":
+                        variablesData.get(variable).setText(userPorteArma);
+                        break;
+                }
+                //variablesData.get(variable).setText("AAAAAAAA: " + count++);
+                varsData.put(variable, variablesData.get(variable).getText());
+                //Toast.makeText(SelectedTemplateJobActivity.this, "The INFO IS: " + variablesData.get(variable).getText(), Toast.LENGTH_SHORT).show();
+                geralInfos = geralInfos + "VAR:" + variable + " VALUES " + variablesData.get(variable).getText() + " <> ";
+            }
+
+            Toast.makeText(SelectedTemplateJobActivity.this, "ALL: " + geralInfos, Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override

@@ -18,13 +18,13 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Enroll" />
+                android:text="Adquirir digital" />
             <Button
                 android:layout_weight="1"
                 android:id="@+id/btnEnrollStop"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="EnrollStop" />
+                android:text="Parar aquisição" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,7 +40,7 @@
                 android:id="@+id/btnCleanAll"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="CleanAll" />
+                android:text="Limpar digitais salvas" />
 
             <Button
                 android:id="@+id/btnGoToMain"
@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
-                android:text="Go to main menu" />
+                android:text="Ir para o menu principal" />
 
         </LinearLayout>
 

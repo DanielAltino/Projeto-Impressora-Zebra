@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Demo PRINT</string>
+    <string name="app_name">Demo PRINT-9</string>
 
     <string name="no_printer_selected">No Printer Selected</string>
     <string name="no_recently_selected_printers">No Recently Selected Printers</string>
@@ -12,7 +12,7 @@
     <string name="available_templates">Available Templates</string>
     <string name="no_templates_found">No Templates Found</string>
     <string name="photo">Photo</string>
-    <string name="print">Print</string>
+    <string name="print">IMPRIMIR</string>
     <string name="connect">Connect</string>
     <string name="disconnect">Disconnect</string>
     <string name="retry">Retry</string>
