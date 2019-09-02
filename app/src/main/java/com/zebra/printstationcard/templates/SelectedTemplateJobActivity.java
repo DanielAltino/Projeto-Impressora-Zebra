@@ -262,6 +262,9 @@ public class SelectedTemplateJobActivity extends AppCompatActivity implements Ge
                     case "PorteArma":
                         variablesData.get(variable).setText(userPorteArma);
                         break;
+                    case "NomeCompleto":
+                        variablesData.get(variable).setText(userName+" "+userSobrenome);
+                        break;
                 }
                 //variablesData.get(variable).setText("AAAAAAAA: " + count++);
                 varsData.put(variable, variablesData.get(variable).getText());

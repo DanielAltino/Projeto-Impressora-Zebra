@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import com.zebra.printstationcard.util.UIHelper;
+
 
 import com.zebra.printstationcard.R;
 
@@ -18,6 +20,8 @@ public class FirstActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finger_main);
+
+        UIHelper.setLogoOnActionBar(this);
 
         btnSignup = (Button) findViewById(R.id.btnSignup);
         btnPrintCard = (Button) findViewById(R.id.btnPrintCard);

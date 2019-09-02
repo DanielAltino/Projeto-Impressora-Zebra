@@ -32,7 +32,7 @@ public class UIHelper {
         ActionBar actionBar = activity.getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayShowHomeEnabled(true);
-            actionBar.setLogo(R.drawable.zebra_logo_padded);
+            actionBar.setLogo(R.drawable.prime_logo_padded);
             actionBar.setDisplayUseLogoEnabled(true);
         }
     }

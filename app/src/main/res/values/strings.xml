@@ -67,5 +67,6 @@
     <string name="storage_permissions_denied">Storage permissions denied. Grant storage permissions to proceed.</string>
     <string name="storage_permissions_request_enable_message">Storage permissions denied automatically due to \"Never ask again\" being enabled. Grant storage permissions in your device settings and try again.</string>
     <string name="zebra_technologies">&#169; Zebra Technologies Corporation 2018</string>
+    <string name="prime_technologies">&#169; Aidc Tecnologia Ltda 2019</string>
     <string name="application_version">Version 1.0</string>
 </resources>

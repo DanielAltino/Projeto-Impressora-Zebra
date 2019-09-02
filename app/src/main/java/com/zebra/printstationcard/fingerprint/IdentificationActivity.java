@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.rscja.deviceapi.FingerprintWithFIPS;
 import com.zebra.printstationcard.R;
+import com.zebra.printstationcard.util.UIHelper;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -38,6 +39,9 @@ public class IdentificationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.d(TAG,"onCreate");
         setContentView(R.layout.activity_identification);
+
+        UIHelper.setLogoOnActionBar(this);
+
         initSound();
         initViewPageData();
         try {

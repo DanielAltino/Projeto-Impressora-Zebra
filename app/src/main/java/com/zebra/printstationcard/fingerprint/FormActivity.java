@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.zebra.printstationcard.R;
+import com.zebra.printstationcard.util.UIHelper;
 
 import java.util.ArrayList;
 
@@ -25,6 +26,8 @@ public class FormActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form);
+
+        UIHelper.setLogoOnActionBar(this);
 
         init();
 

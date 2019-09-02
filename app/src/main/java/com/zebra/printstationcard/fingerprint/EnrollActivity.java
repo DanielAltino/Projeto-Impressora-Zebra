@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 import com.rscja.deviceapi.FingerprintWithFIPS;
 import com.zebra.printstationcard.R;
+import com.zebra.printstationcard.util.UIHelper;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -77,6 +78,9 @@ public class EnrollActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate");
         setContentView(R.layout.activity_enroll);
+
+        UIHelper.setLogoOnActionBar(this);
+
         initSound();
         initViewPageData();
         try {

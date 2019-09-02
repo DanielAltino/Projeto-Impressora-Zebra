@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.zebra.printstationcard.MainActivity;
 import com.zebra.printstationcard.R;
+import com.zebra.printstationcard.util.UIHelper;
 
 public class PrintCardActivity extends AppCompatActivity {
 
@@ -20,6 +21,8 @@ public class PrintCardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_print_card);
+
+        UIHelper.setLogoOnActionBar(this);
 
         Bundle extras = getIntent().getExtras();
         String userID = extras.getString("userID");

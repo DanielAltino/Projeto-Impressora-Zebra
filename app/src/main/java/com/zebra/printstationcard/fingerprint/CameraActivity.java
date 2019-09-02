@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.zebra.printstationcard.BuildConfig;
 import com.zebra.printstationcard.R;
+import com.zebra.printstationcard.util.UIHelper;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -38,6 +39,8 @@ public class CameraActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
+
+        UIHelper.setLogoOnActionBar(this);
 
         mImageView = (ImageView) findViewById(R.id.image_view);
         mCaptureBtn = (Button) findViewById(R.id.capture_image_btn);
